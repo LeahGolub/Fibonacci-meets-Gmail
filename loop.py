@@ -56,12 +56,12 @@ def check_for_send_email(service):
                 service.users().messages().modify(userId='me', id=penultimate_msg_id,
                                                   body={'removeLabelIds': ['UNREAD']}).execute()
                 print(f'Marked email with ID {penultimate_msg_id} as read.')
-            Fibonacci_directly_to_email(service, messages)
+            fibonacci_directly_to_email(service, messages)
 
         results = service.users().messages().list(userId='me', q="is:unread subject:Oh no! An infinite loop!").execute()
 
 
-def Fibonacci_directly_to_email(service, messages):
+def fibonacci_directly_to_email(service, messages):
     global COUNTER
     list_of_found = []
     list_of_email_number_found = []
